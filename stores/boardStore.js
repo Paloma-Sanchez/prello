@@ -34,7 +34,7 @@ export const useBoardStore = defineStore('boardStore', () => {
 
     const loadSelectedBoard = async (boardId) => {
         boardLoading.value = true;
-        const {data} = await useFetch(`http://localhost:3000/boards/${boardId}`);
+        const {data} = await useFetch(`https://prello.paloma-sanchez.com/boards/${boardId}`);
         boardLoading.value = false;
         return board.value = data.value; 
     };
@@ -71,12 +71,12 @@ export const useBoardStore = defineStore('boardStore', () => {
             starred:false,
             columns:[]
         }
-        await axios.post(`http://localhost:3000/boards/`, newBoard );
+        await axios.post(`https://prello.paloma-sanchez.com/boards/`, newBoard );
         await loadBoards();
     };
 
     const deleteBoard = async (boardId) => {
-        await axios.delete(`http://localhost:3000/boards/${boardId}`);
+        await axios.delete(`https://prello.paloma-sanchez.com/boards/${boardId}`);
     };
 
     const deleteColumn = async (columnName) => {
@@ -115,7 +115,7 @@ export const useBoardStore = defineStore('boardStore', () => {
         console.log('hello2');
         await modifyColumnElementInBoard(modifiedFromColumnArray);
 
-        const {data:toBoard} = await useFetch(`http://localhost:3000/boards/${boardId}`);
+        const {data:toBoard} = await useFetch(`https://prello.paloma-sanchez.com/boards/${boardId}`);
         console.log('dta', toBoard.value)
         const newToColumn=toBoard.value.columns[toColumnIndex]
         newToColumn.tasks.splice(toTaskIndex, 0, task);
@@ -126,7 +126,7 @@ export const useBoardStore = defineStore('boardStore', () => {
             columns:modifiedToColumnArray
         };
         console.log('newBoard',newBoard);
-        await axios.put(`http://localhost:3000/boards/${boardId}`, newBoard );
+        await axios.put(`https://prello.paloma-sanchez.com/boards/${boardId}`, newBoard );
     };
 
     const modifyBoardBackground = async (newUrl) => {
@@ -134,7 +134,7 @@ export const useBoardStore = defineStore('boardStore', () => {
             ...board.value,
             url:newUrl
         };
-        await axios.put(`http://localhost:3000/boards/${board.value.id}`, newBoard );
+        await axios.put(`https://prello.paloma-sanchez.com/boards/${board.value.id}`, newBoard );
     };
 
     const modifyBoardName = async (newBoardName) => {
@@ -142,7 +142,7 @@ export const useBoardStore = defineStore('boardStore', () => {
             ...board.value,
             name:newBoardName
         };
-        await axios.put(`http://localhost:3000/boards/${board.value.id}`, newBoard );
+        await axios.put(`https://prello.paloma-sanchez.com/boards/${board.value.id}`, newBoard );
     };
 
     const modifyColumn = async (columnIndex, newColumnName) => {
@@ -160,7 +160,7 @@ export const useBoardStore = defineStore('boardStore', () => {
             ...board.value, 
             columns:newColumnArray
         };
-        await axios.put(`http://localhost:3000/boards/${board.value.id}`, newBoard );
+        await axios.put(`https://prello.paloma-sanchez.com/boards/${board.value.id}`, newBoard );
         await loadSelectedBoard(board.value.id);
     };
 
@@ -186,7 +186,7 @@ export const useBoardStore = defineStore('boardStore', () => {
             ...board.value, 
             columns:newColumnArray
         };
-        await axios.put(`http://localhost:3000/boards/${board.value.id}`, newBoard );
+        await axios.put(`https://prello.paloma-sanchez.com/boards/${board.value.id}`, newBoard );
         await loadSelectedBoard(board.value.id);
     };
 
@@ -198,7 +198,7 @@ export const useBoardStore = defineStore('boardStore', () => {
             ...board.value,
             columns:modifiedColumnArray
         }
-        await axios.put(`http://localhost:3000/boards/${board.value.id}`, newBoard)
+        await axios.put(`https://prello.paloma-sanchez.com/boards/${board.value.id}`, newBoard)
         await loadSelectedBoard(board.value.id);
     };
 
@@ -225,7 +225,7 @@ export const useBoardStore = defineStore('boardStore', () => {
             ...board.value,
             starred:newStarredValue
         };
-        await axios.put(`http://localhost:3000/boards/${board.value.id}`, newBoard );
+        await axios.put(`https://prello.paloma-sanchez.com/boards/${board.value.id}`, newBoard );
         await loadBoards();
     };
 

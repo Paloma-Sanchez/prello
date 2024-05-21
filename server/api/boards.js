@@ -1,7 +1,8 @@
 import { defineEventHandler } from 'h3';
 
 export default defineEventHandler(async (event) => {
-    const response = await $fetch('http://localhost:3000/boards');
+    const response = await $fetch('https://prello.paloma-sanchez.com/boards');
+    let userId = getCookie(event, 'userId') || 0
     const finalResponse = [];
     response.forEach(board => {
         finalResponse.push(
@@ -13,6 +14,6 @@ export default defineEventHandler(async (event) => {
             }
         );
     });
-    //console.log(finalResponse);
+    console.log(userId);
     return finalResponse;
 });
