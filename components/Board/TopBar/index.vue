@@ -2,7 +2,6 @@
 const boardStore = useBoardStore();
 const router = useRouter();
 const toast = useToast();
-const backgroundMenuActive=ref(false);
 const modifyBoardNameActive = ref(false);
 
 //actions for toast buttons
@@ -128,7 +127,7 @@ defineExpose({
                 class="mr-2"
                 color="sky"
                 size="2xs"
-                @click="backgroundMenuActive=!backgroundMenuActive"
+                @click="$emit('changeBackgroundClick')"
             >
                 Change background
             </UButton>
@@ -139,9 +138,6 @@ defineExpose({
                 @click="onDeleteBoardClick"
             />
         </div>
-        <BoardTopBarChangeBgMenu
-            v-if="backgroundMenuActive"
-            @reload-board="boardStore.loadSelectedBoard(board.id)"
-        />
+
     </section>
 </template>

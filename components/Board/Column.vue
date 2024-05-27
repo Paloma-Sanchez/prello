@@ -143,12 +143,12 @@
                         size="xs"
                         color="red"
                         square
-                        variant="solid"
+
                         @click="deleteColumn(column.name)"
                     />
                 </div>
                 <UButton
-                    class="c-open-name-menu-button mr-2 transition-transform ease-in-out hover:scale-150 duration-100 text-slate-100 p-0 pl-2"
+                    class="c-open-name-menu-button mr-2 transition-transform ease-in-out hover:scale-150 duration-100 text-slate-100 p-0 pl-2 relative "
                     icon="i-heroicons-ellipsis-vertical"
                     size="md"
                     color="white"

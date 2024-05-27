@@ -87,7 +87,7 @@ import { useBoardStore } from '~/stores/boardStore';
 
     const handleCoverColorChange = async (newColor) => {
         await boardStore.changeCoverColor(props.columnIndex, props.taskIndex, newColor);
-        boardStore.toggleMaskVisibility();
+        handleCloseCoverMenu();
     };
 
     const handleTryingNewColor = (newColor) =>{

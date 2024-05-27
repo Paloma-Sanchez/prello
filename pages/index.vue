@@ -3,7 +3,6 @@ import { useBoardStore } from '~/stores/boardStore';
 const boardStore = useBoardStore();
 const boardPreviewList = ref(null)
 const createNewBoardActive = ref(false);
-
 const allBoards = computed(()=>boardStore.boards); 
 const highlightedBoards = computed(()=>boardStore.getStarredBoards); 
 const highlightActive = computed(()=>boardStore.highlightsActive);
