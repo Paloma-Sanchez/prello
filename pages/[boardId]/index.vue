@@ -46,8 +46,8 @@ const onToggleBackgroundMenuVisible = async() => {
   >
     <div
       v-if="maskIsVisible"
-      class="c-mask w-full h-[115%] -top-28 relative bg-slate-600/70 backdrop-blur-sm z-10"
-      @click="onMaskClick"
+      class="c-mask w-full h-[115%] -top-28 relative bg-slate-600/70 backdrop-blur-md z-10"
+      @click.self="onMaskClick"
     ></div>
     <BoardTopBar
       :board="board"
@@ -67,7 +67,7 @@ const onToggleBackgroundMenuVisible = async() => {
       @deactivateTopBarFeatures="onDeactivateTopBarFeatures"
     />
   </main>
-  <div v-show="isModalOpen" class="task-bg flex justify-center" @click="closeModal">
+  <div v-show="isModalOpen" class="task-bg flex justify-center" @click.self="closeModal">
     <NuxtPage :key="route.fullPath" />
   </div>
 </template>

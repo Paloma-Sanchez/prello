@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: false,
+  vue: {
+    compilerOptions: {
+      whitespace: "preserve"
+    }
+  },
   css:[
     './assets/css/vello.css', 
     './assets/css/main.css'
