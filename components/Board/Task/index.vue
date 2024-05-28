@@ -98,7 +98,9 @@ import { useBoardStore } from '~/stores/boardStore';
         if(!state.newTaskName){
             return;
         }
-        boardStore.modifyTask(taskIndex, columnIndex, state.newTaskName, state.newTaskDescription);
+        if (!(props.task.name === state.newTaskName && props.task.description === state.newTaskDescription)) {
+            boardStore.modifyTask(taskIndex, columnIndex, state.newTaskName, state.newTaskDescription);
+        }
         boardStore.toggleMaskVisibility();
         boardStore.toggleTaskFieldVisibility();
     };
