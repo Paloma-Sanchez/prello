@@ -53,11 +53,10 @@ const handleDeleteBoardConfirmed = async () => {
 };
 
 const onHandleClickOutsideFields = () => {
-  if (props.board.name === newBoardName.value) {
-    backgroundMenuActive.value = false;
-  } else {
-    onChangeBoardName();
-  }
+    if (props.board.name !== newBoardName.value) {
+        onChangeBoardName();
+    } 
+    
   modifyBoardNameActive.value = false;
 };
 
