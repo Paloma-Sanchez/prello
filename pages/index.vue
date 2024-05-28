@@ -29,7 +29,6 @@ watch([highlightActive, allBoards],()=>{
 
 //methods
 const handleNewBoardCreation = (boardName, url) => {
-    //console.log('creating board', boardName, url);
     boardStore.createNewBoard(boardName, url);
     createNewBoardActive.value=false;
 };

@@ -107,16 +107,13 @@ export const useBoardStore = defineStore('boardStore', () => {
     };
 
     const moveTaskToNewBoard = async({fromTaskIndex, toTaskIndex, fromColumnIndex, toColumnIndex, boardId}) => {
-        console.log('recieved fom be')
         const newFromColumn = board.value.columns[fromColumnIndex]
         const task = newFromColumn.tasks.splice(fromTaskIndex, 1)[0];
         const modifiedFromColumnArray = [...board.value.columns];
         modifiedFromColumnArray[fromColumnIndex]=newFromColumn;
-        console.log('hello2');
         await modifyColumnElementInBoard(modifiedFromColumnArray);
 
         const {data:toBoard} = await useFetch(`https://prello.paloma-sanchez.com/boards/${boardId}`);
-        console.log('dta', toBoard.value)
         const newToColumn=toBoard.value.columns[toColumnIndex]
         newToColumn.tasks.splice(toTaskIndex, 0, task);
         const modifiedToColumnArray = [...toBoard.value.columns];
@@ -125,7 +122,6 @@ export const useBoardStore = defineStore('boardStore', () => {
             ...toBoard.value, 
             columns:modifiedToColumnArray
         };
-        console.log('newBoard',newBoard);
         await axios.put(`https://prello.paloma-sanchez.com/boards/${boardId}`, newBoard );
     };
 
@@ -203,7 +199,6 @@ export const useBoardStore = defineStore('boardStore', () => {
     };
 
     const moveTask = async({fromTaskIndex, toTaskIndex, fromColumnIndex, toColumnIndex}) => {
-        //console.log('received indexes',fromTaskIndex, toTaskIndex, fromColumnIndex, toColumnIndex)
         const newFromColumn = board.value.columns[fromColumnIndex]
         const task = newFromColumn.tasks.splice(fromTaskIndex, 1)[0];
         const newToColumn=board.value.columns[toColumnIndex]

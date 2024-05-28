@@ -49,8 +49,6 @@ const boardToIndex = computed(() => {
     return boards.value.filter(board => board.name === boardTo.value)[0];
 });
 
-watch(boardToIndex, ()=> console.log('board to index',boardToIndex.value.id), {immediate:true});
-
 const columnToIndex = computed(()=>{
     if(!selectedBoardInfo.value){
         return -1
@@ -84,7 +82,6 @@ watch(columnArray,()=>{
 }, {immediate:true});
 
 watch(columnTo,()=>{
-    console.log('task to', taskPositionArray.value[taskPositionArray.value.length-1])
     taskTo.value = taskPositionArray.value[taskPositionArray.value.length-1];
 }, {immediate:true});
 
@@ -93,7 +90,6 @@ const handleMoveTask = () => {
     //console.log('column Index', props.columnIndex, columnToIndex.value);
 
     if(currentBoardIndex.value === boardToIndex.value){
-        console.log('same board');
         if(props.taskIndex === taskTo.value-1){
             if(props.columnIndex === columnToIndex.value){
                 return
@@ -114,7 +110,6 @@ const handleMoveTask = () => {
                 });
         }
     }else{
-        console.log('moving to another board', boardToIndex.value.id);
         boardStore.moveTaskToNewBoard({
             fromTaskIndex: props.taskIndex,
             toTaskIndex: taskTo.value-1,

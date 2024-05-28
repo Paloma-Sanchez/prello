@@ -99,7 +99,7 @@ const toggleBackgroundMenuVisible = () => {
         :column="column"
         :columnIndex="columnIndex"
         :maskIsVisible="maskIsVisible"
-        draggable="true"
+        :draggable="maskIsVisible?false:true"
         @dragstart.self="pickupColumn($event, columnIndex)"
         @dragenter.prevent
         @dragover.prevent

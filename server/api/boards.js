@@ -14,6 +14,5 @@ export default defineEventHandler(async (event) => {
             }
         );
     });
-    console.log(userId);
     return finalResponse;
 });

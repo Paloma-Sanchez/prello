@@ -110,9 +110,7 @@ import { useBoardStore } from '~/stores/boardStore';
     };
 
     const toggleTaskMenuOpenFromTask = () => {
-        console.log('received in task', modifyTaskMenuOpen.value);
         modifyTaskMenuOpen.value = ! modifyTaskMenuOpen.value;
-        console.log('toggled', modifyTaskMenuOpen.value);
     };
 
     ///Array for dropdown

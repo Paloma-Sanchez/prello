@@ -22,6 +22,6 @@ const columnIndex = computed(() => boardStore.selectedTask.columnIndex);
     class="c-task-detail-taskid w-[768px] relative top-28 left-8 h-3/4"
     v-if="board && task"
   >
-    <BoardTaskDetail :task="task" :taskIndex="taskIndex" :columnIneditdex="columnIndex" />
+    <BoardTaskDetail :task="task" :taskIndex="taskIndex" :columnIndex="columnIndex" />
   </div>
 </template>

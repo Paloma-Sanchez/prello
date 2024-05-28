@@ -8,6 +8,8 @@
     const editColumnName = ref(false);
     const showEditColumn = ref(false);
     const selectedTaskId = computed(() => boardStore.selectedTaskId);
+    const taskFieldActive = computed(() => boardStore.taskFieldActive);
+
 
     const props = defineProps({
         column:{
@@ -174,7 +176,7 @@
                     :task="task"
                     :columnIndex="columnIndex"
                     :taskIndex="taskIndex"
-                    draggable="true"
+                    :draggable="taskFieldActive?false:true"
                     @dragstart="
                         pickupTask($event, {
                             fromColumnIndex: columnIndex,
