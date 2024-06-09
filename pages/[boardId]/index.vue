@@ -40,7 +40,7 @@ const onToggleBackgroundMenuVisible = async() => {
 </script>
 <template>
   <main
-    v-if="!boardLoading && board !== null"
+    v-if="board !== null"
     :style="{ backgroundImage: `url('${board.url}')` }"
     class="c-board-id absolute h-full top-0 left-8 rounded-lg bg-cover bg-center w-[98%]"
   >
